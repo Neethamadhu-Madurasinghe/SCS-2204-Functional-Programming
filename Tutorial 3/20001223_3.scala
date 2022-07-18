@@ -32,8 +32,8 @@ def areaOfDisk(r: Float): Float = Math.PI.toFloat * r * r
 
  def bookCost(books: Int): Float = books * 24.95f * (1 - 0.4f);
  def shippingCost(books: Int): Float = books match {
-    case x if x <= 50 =>  books * 3.0f
-    case x => (50 * 3.0f) + ((books - 50) * .75f)    
+    case x if x <= 50 =>  3f  // not 3 per each copy
+    case x => 3.0f + ((books - 50) * .75f)    
  }
 
  // Question 5
