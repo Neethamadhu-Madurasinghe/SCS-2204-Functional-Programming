@@ -1,3 +1,5 @@
+// 20001223 
+
 object Tutorial2_1 {
   def main(args:Array[String]): Unit = {
     var (k, i, j, m, n, f, g, c) = (2, 2, 2, 5, 5, 120.0, 4.0f, 'X');
@@ -29,14 +31,14 @@ object Tutorial2_1 {
 
     println(-2 * (g - k1) + c1); 
     /**
-     *  Evaluated to 4.6000004 -> -2 * (4.0 - 4.3) + 4 = -2 * -0.3 + 4 = 4.6 + 4 = 4.6  
-     *  4.0000006 because rounding error
+     *  Evaluated to 4.6000004 -> -2 * (4.0 - 4.3) + 4 = -2 * -0.3 + 4 = 0.6 + 4 = 4.6  
+     *  4.0000004 because rounding error
      **/
 
     // println(c1 = c1++);
     /**
      *  Does not work -> ++ is not a valid operator
-     *  Evaluated to 4 in java  ( starts with incrementing a, and then reverting a to the old value as a++ returns the not incremented value.)
+     *  Evaluated to 4 in java  ( starts with incrementing c1, and then reverting c1 to the old value as a++ returns the not incremented value.)
      *  c1 = 4
      **/
 
