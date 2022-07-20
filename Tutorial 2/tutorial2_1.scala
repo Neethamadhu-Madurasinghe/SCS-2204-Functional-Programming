@@ -38,7 +38,7 @@ object Tutorial2_1 {
     // println(c1 = c1++);
     /**
      *  Does not work -> ++ is not a valid operator
-     *  Evaluated to 4 in java  ( starts with incrementing c1, and then reverting c1 to the old value as a++ returns the not incremented value.)
+     *  Evaluated to 4 in java  ( starts with incrementing c1, and then reverting c1 to the old value as c1++ returns the not incremented value.)
      *  c1 = 4
      **/
 
