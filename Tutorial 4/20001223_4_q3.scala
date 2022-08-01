@@ -1,37 +1,36 @@
-import java.util.UUID
-val randomNumberGenerator = scala.util.Random;
-
 object Tutorial4 {
-  def main(args: Array[String]): Unit = {
+def main(args: Array[String]): Unit = {
     // Question 3
-    val cars: Array[CarUUID] = Array(
-    CarUUID(Car("bmw 3 series", 20000.00)),
-    CarUUID(Car("bmw 5 series", 50000.00)),
-    CarUUID(Car("vw passat", 10000.00)),
-    CarUUID(Car("vw golf series", 12000.00)),
-    CarUUID(Car("mazda 3", 15000.00)),
-    );
-
-    displayCars(cars);
+    println(formatNames("Benny", _toUpper)())
+    println(formatNames("Niroshan", _toUpper)(0::1::Nil))
+    println(formatNames("Saman", _toLower)())
+    println(formatNames("Kumara", _toUpper)(0::"Kumara".length-1::Nil))
   }
 } 
 
 // Question 3
-def getUUID(car: Car): Int = {
-  car.hashCode + randomNumberGenerator.nextInt()
+def _toUpper(word: String): String = word.toUpperCase()
+def _toLower(word: String): String = word.toLowerCase()
+
+
+
+def formatNames(name: String, f: String => String)(format: List[Int] = List()): String = {
+  if(format.isEmpty)  {
+    f(name)
+  
+  }else {
+    var temp = ""
+    for(i <- 0 to name.length() - 1) {
+      if(format.contains(i)) {
+        temp = temp + f(name.charAt(i).toString())
+      }else {
+        temp = temp + name.charAt(i).toString()
+      }
+    }
+    temp
+  }
 }
 
-case class Car(name: String, price: Double)
-
-// Companion object for CarUUID cases class defines auxiliary contructor which takes only Car object (UUID generated using the Car object)
-object CarUUID {
-  def apply(car: Car) = new CarUUID(car, getUUID(car))
-}
-
-case class CarUUID(car: Car, UUID: Int) 
 
 
-def displayCars(cars: Array[CarUUID]): Any = if(!cars.isEmpty) {
-  printf("car uuid = %s - %d\n", cars.head.car.name, cars.head.UUID)
-  displayCars(cars.tail)
-}
+

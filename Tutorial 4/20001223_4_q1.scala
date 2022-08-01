@@ -1,7 +1,7 @@
 object Tutorial4 {
   def main(args: Array[String]): Unit = {
     // Question 1
-    printf("Interest amount fot 240000 ruppes: %.2f\n", calulateInterest(240000));
+    printf("Interest amount fot 240000 rupees: %.2f\n", calulateInterest(20000));
   }
 } 
 
