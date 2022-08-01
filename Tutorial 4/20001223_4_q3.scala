@@ -16,13 +16,10 @@ def _toLower(word: String): String = word.toLowerCase()
 def formatNames(name: String, f: String => String)(format: List[Int] = List()): String = {
   if(format.isEmpty)  {
     f(name)
-  
   }else {
     var temp = ""
-    for(i <- 0 to name.length() - 1) {
-      val current =  if(format.contains(i)) f(name.charAt(i).toString()) else name.charAt(i).toString()
-      temp = temp + current;
-    }
+    // loop and ternary operator together
+    for(i <- 0 to name.length() - 1) temp = temp + (if(format.contains(i)) f(name.charAt(i).toString()) else name.charAt(i).toString())
     temp
   }
 }
