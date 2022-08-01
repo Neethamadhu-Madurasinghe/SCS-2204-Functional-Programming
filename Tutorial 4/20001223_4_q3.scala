@@ -13,7 +13,6 @@ def _toUpper(word: String): String = word.toUpperCase()
 def _toLower(word: String): String = word.toLowerCase()
 
 
-
 def formatNames(name: String, f: String => String)(format: List[Int] = List()): String = {
   if(format.isEmpty)  {
     f(name)
@@ -21,11 +20,8 @@ def formatNames(name: String, f: String => String)(format: List[Int] = List()): 
   }else {
     var temp = ""
     for(i <- 0 to name.length() - 1) {
-      if(format.contains(i)) {
-        temp = temp + f(name.charAt(i).toString())
-      }else {
-        temp = temp + name.charAt(i).toString()
-      }
+      val current =  if(format.contains(i)) f(name.charAt(i).toString()) else name.charAt(i).toString()
+      temp = temp + current;
     }
     temp
   }
