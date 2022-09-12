@@ -8,7 +8,7 @@ object Main {
     println(y);
     println(z);
 
-    println(x-y-z);
+    println(x.sub(y.sub(z)));
 
   } 
 }
@@ -29,14 +29,14 @@ class Rational(x: Int, y: Int) {
     new Rational(-1 * this.numerator, this.denominator)
   }
 
-  def +(that: Rational): Rational = {
+  def add(that: Rational): Rational = {
     val n = (this.numerator * that.denominator) + (that.numerator * this.denominator)
     val d = this.denominator * that.denominator 
     new Rational(n, d)
   }
 
-  def -(that: Rational): Rational = {
-    this + that.neg()
+  def sub(that: Rational): Rational = {
+    this add(that.neg())
   }
 
   override def toString(): String = {
